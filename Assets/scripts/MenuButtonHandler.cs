@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButtonHandler : MonoBehaviour {
 
     public GameObject player;
+    public ClickAction clickAction;
+
+    public enum ClickAction {
+        None,
+        StartGame,
+        ReloadScene
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +39,16 @@ public class MenuButtonHandler : MonoBehaviour {
                         Destroy(gameObject.GetComponent<Animator>());
                         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
                         rb.AddForceAtPosition(Vector3.forward * 1000, hit.point);
-                        player.GetComponent<PlayerScript>().gameStarted = true;
+
+                        switch(clickAction) {
+                            case ClickAction.StartGame:
+                                player.GetComponent<PlayerScript>().gameStarted = true;
+                                break;
+
+                            case ClickAction.ReloadScene:
+                                SceneManager.LoadScene(0, LoadSceneMode.Single);
+                                break;
+                        }
                     }
                 }
             }

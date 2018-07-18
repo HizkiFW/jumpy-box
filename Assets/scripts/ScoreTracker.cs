@@ -10,21 +10,26 @@ public class ScoreTracker : MonoBehaviour {
     public GameObject player;
     public GameObject scoreText; // Text for current score
     public GameObject recordText; // Text for best score
+    public Transform bestScoreLine; // Visual line for best score
 
     public bool newHighScore = false;
     public int score;
 
     private PlayerScript playerData;
     private float maxHeight;
+    private int currentBestScore;
 
 	// Use this for initialization
 	void Start () {
 		playerData = player.GetComponent<PlayerScript>();
-        recordText.GetComponent<Text>().text = "Best: " + LoadScore();
+        currentBestScore = LoadScore();
+        recordText.GetComponent<Text>().text = "Best: " + currentBestScore;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        bestScoreLine.position = new Vector3(Camera.main.transform.position.x, Mathf.Max(currentBestScore, maxHeight), 0);
+
 		if(!playerData.gameStarted) return;
 
         recordText.SetActive(false);

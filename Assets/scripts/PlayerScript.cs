@@ -128,6 +128,10 @@ public class PlayerScript : MonoBehaviour {
         gameObject.transform.SetParent(coll.gameObject.transform.parent);
     }
 
+    void OnCollisionStay2D(Collision2D coll) {
+        canJump = true;
+    }
+
     void OnCollisionExit2D(Collision2D coll) {
         gameObject.transform.SetParent(null);
     }
