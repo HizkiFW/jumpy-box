@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a19601feebac85344894634955ff41f1
+timeCreated: 1531669777
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Play
+  fontNames:
+  - Play
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7dc9e16fd627e934ba13c8f48e4638ae, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
