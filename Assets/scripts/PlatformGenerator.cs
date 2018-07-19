@@ -46,7 +46,7 @@ public class PlatformGenerator : MonoBehaviour {
         // Check if platform still on screen
         foreach(GameObject platform in activePlatforms) {
             if(platform.transform.position.y < player.transform.position.y - (generationDistance * heightStep)
-                    || platform.transform.position.y < 0) {
+                    || platform.transform.position.y < 1) {
                 // Assume platform below screen, kill it for performance
                 Debug.Log("Kill this platform!");
                 Destroy(platform);
